@@ -3,119 +3,6 @@
 
 /////////////////////////////////////////////////////////////////
 
-//Initialise Fuzzy Rules
-
-
-
-//#include <iostream>
-//#include <fstream>
-//#include <windows.h>
-//#include <nlohmann/json.hpp>
-//#include <string>
-//short fuzzy_rules[25];
-//typedef struct {
-//    float a,b,c,d;
-//}trap_parameter;
-//trap_parameter trap_parameters[2][5];
-//float A,B,C,D;
-//float output_power_Value[9];
-//void loadData(){
-//    char cwd[MAX_PATH];
-//    GetCurrentDirectory(MAX_PATH, cwd);
-//    cout << "Current working directory: " << cwd << endl;
-//    ifstream inputFile("data.json");
-//
-//    cout << !inputFile.is_open()<< endl;
-//
-//    nlohmann::json jsonData;
-//    inputFile >> jsonData;
-//    auto json_F_v =  jsonData["fuzzy"];
-//    for (size_t i = 0; i < 25 ; i++) {
-//
-//        fuzzy_rules[i] = stoi(json_F_v[i].get<string>());
-//
-//    }
-//    trap_parameters[INPUT_X][in_nl].a = stof(jsonData["input_X"]["NL"][0].get<string>());
-//    trap_parameters[INPUT_X][in_nl].b = stof(jsonData["input_X"]["NL"][1].get<string>());
-//    trap_parameters[INPUT_X][in_nl].c = stof(jsonData["input_X"]["NL"][2].get<string>());
-//    trap_parameters[INPUT_X][in_nl].d = stof(jsonData["input_X"]["NL"][3].get<string>());
-//
-//    trap_parameters[INPUT_X][in_ns].a = stof(jsonData["input_X"]["NS"][0].get<string>());
-//    trap_parameters[INPUT_X][in_ns].b = stof(jsonData["input_X"]["NS"][1].get<string>());
-//    trap_parameters[INPUT_X][in_ns].c = stof(jsonData["input_X"]["NS"][2].get<string>());
-//    trap_parameters[INPUT_X][in_ns].d = stof(jsonData["input_X"]["NS"][3].get<string>());
-//
-//
-//    trap_parameters[INPUT_X][in_ze].a = stof(jsonData["input_X"]["ZE"][0].get<string>());
-//    trap_parameters[INPUT_X][in_ze].b = stof(jsonData["input_X"]["ZE"][1].get<string>());
-//    trap_parameters[INPUT_X][in_ze].c = stof(jsonData["input_X"]["ZE"][2].get<string>());
-//    trap_parameters[INPUT_X][in_ze].d = stof(jsonData["input_X"]["ZE"][3].get<string>());
-//
-//    trap_parameters[INPUT_X][in_ps].a = stof(jsonData["input_X"]["PS"][0].get<string>());
-//    trap_parameters[INPUT_X][in_ps].b = stof(jsonData["input_X"]["PS"][1].get<string>());
-//    trap_parameters[INPUT_X][in_ps].c = stof(jsonData["input_X"]["PS"][2].get<string>());
-//    trap_parameters[INPUT_X][in_ps].d = stof(jsonData["input_X"]["PS"][3].get<string>());
-//
-//    trap_parameters[INPUT_X][in_pl].a = stof(jsonData["input_X"]["PL"][0].get<string>());
-//    trap_parameters[INPUT_X][in_pl].b = stof(jsonData["input_X"]["PL"][1].get<string>());
-//    trap_parameters[INPUT_X][in_pl].c = stof(jsonData["input_X"]["PL"][2].get<string>());
-//    trap_parameters[INPUT_X][in_pl].d = stof(jsonData["input_X"]["PL"][3].get<string>());
-//
-//
-//
-//
-//    trap_parameters[INPUT_Y][in_nl].a = stof(jsonData["input_Y"]["NL"][0].get<string>());
-//    trap_parameters[INPUT_Y][in_nl].b = stof(jsonData["input_Y"]["NL"][1].get<string>());
-//    trap_parameters[INPUT_Y][in_nl].c = stof(jsonData["input_Y"]["NL"][2].get<string>());
-//    trap_parameters[INPUT_Y][in_nl].d = stof(jsonData["input_Y"]["NL"][3].get<string>());
-//
-//    trap_parameters[INPUT_Y][in_ns].a = stof(jsonData["input_Y"]["NS"][0].get<string>());
-//    trap_parameters[INPUT_Y][in_ns].b = stof(jsonData["input_Y"]["NS"][1].get<string>());
-//    trap_parameters[INPUT_Y][in_ns].c = stof(jsonData["input_Y"]["NS"][2].get<string>());
-//    trap_parameters[INPUT_Y][in_ns].d = stof(jsonData["input_Y"]["NS"][3].get<string>());
-//
-//
-//    trap_parameters[INPUT_Y][in_ze].a = stof(jsonData["input_Y"]["ZE"][0].get<string>());
-//    trap_parameters[INPUT_Y][in_ze].b = stof(jsonData["input_Y"]["ZE"][1].get<string>());
-//    trap_parameters[INPUT_Y][in_ze].c = stof(jsonData["input_Y"]["ZE"][2].get<string>());
-//    trap_parameters[INPUT_Y][in_ze].d = stof(jsonData["input_Y"]["ZE"][3].get<string>());
-//
-//    trap_parameters[INPUT_Y][in_ps].a = stof(jsonData["input_Y"]["PS"][0].get<string>());
-//    trap_parameters[INPUT_Y][in_ps].b = stof(jsonData["input_Y"]["PS"][1].get<string>());
-//    trap_parameters[INPUT_Y][in_ps].c = stof(jsonData["input_Y"]["PS"][2].get<string>());
-//    trap_parameters[INPUT_Y][in_ps].d = stof(jsonData["input_Y"]["PS"][3].get<string>());
-//
-//    trap_parameters[INPUT_Y][in_pl].a = stof(jsonData["input_Y"]["PL"][0].get<string>());
-//    trap_parameters[INPUT_Y][in_pl].b = stof(jsonData["input_Y"]["PL"][1].get<string>());
-//    trap_parameters[INPUT_Y][in_pl].c = stof(jsonData["input_Y"]["PL"][2].get<string>());
-//    trap_parameters[INPUT_Y][in_pl].d = stof(jsonData["input_Y"]["PL"][3].get<string>());
-//    for (int i = 0; i < 2; ++i) {
-//        for (int j = 0; j < 5; ++j) {
-//            cout<<trap_parameters[i][j].a <<" ";
-//            cout<<trap_parameters[i][j].b <<" ";
-//            cout<<trap_parameters[i][j].c <<" ";
-//            cout<<trap_parameters[i][j].d<<endl;
-//
-//        }
-//    }
-//
-//    A = stof(jsonData["parameters"][0].get<string>());
-//    B = stof(jsonData["parameters"][1].get<string>());
-//    C = stof(jsonData["parameters"][2].get<string>());
-//    D = stof(jsonData["parameters"][3].get<string>());
-//    cout << A <<endl;
-//    cout << B<<endl;
-//    cout << C<<endl;
-//    cout << D<<endl;
-//    for (int i = 0; i < 9; ++i) {
-//        output_power_Value[i] = stof(jsonData["output_Strength"][i].get<string>());
-//        cout << output_power_Value[i]<<endl;
-//    }
-//
-//}
-
-
-
 
 //rule -------------------------------------
 void initFuzzyRules(fuzzy_system_rec *fl) {
@@ -125,113 +12,6 @@ void initFuzzyRules(fuzzy_system_rec *fl) {
         fl->rules[i].inp_index[0] = INPUT_X;
         fl->rules[i].inp_index[1] = INPUT_Y;
     }
-//    fl->rules[0].inp_fuzzy_set[0] = in_nl;
-//    fl->rules[0].inp_fuzzy_set[1] = in_nl;
-//    for (int i = 0; i < 25; ++i) {
-//        fl->rules[i].out_fuzzy_set = fuzzy_rules[i];
-//    }
-
-
-//    fl->rules[0].inp_fuzzy_set[INPUT_X] = in_nl;
-//    fl->rules[0].inp_fuzzy_set[INPUT_Y] = in_pl;
-//    fl->rules[0].out_fuzzy_set = out_ns;
-//
-//    fl->rules[1].inp_fuzzy_set[INPUT_X] = in_nl;
-//    fl->rules[1].inp_fuzzy_set[INPUT_Y] = in_ps;
-//    fl->rules[1].out_fuzzy_set = out_ze;
-//
-//    fl->rules[2].inp_fuzzy_set[INPUT_X] = in_nl;
-//    fl->rules[2].inp_fuzzy_set[INPUT_Y] = in_ze;
-//    fl->rules[2].out_fuzzy_set = out_nm;
-//
-//    fl->rules[3].inp_fuzzy_set[INPUT_X] = in_nl;
-//    fl->rules[3].inp_fuzzy_set[INPUT_Y] = in_ns;
-//    fl->rules[3].out_fuzzy_set = out_ze;
-//
-//    fl->rules[4].inp_fuzzy_set[INPUT_X] = in_nl;
-//    fl->rules[4].inp_fuzzy_set[INPUT_Y] = in_nl;
-//    fl->rules[4].out_fuzzy_set = out_nl;
-//
-//    fl->rules[5].inp_fuzzy_set[INPUT_X] = in_ns;
-//    fl->rules[5].inp_fuzzy_set[INPUT_Y] = in_pl;
-//    fl->rules[5].out_fuzzy_set = out_ze;
-//
-//    fl->rules[6].inp_fuzzy_set[INPUT_X] = in_ns;
-//    fl->rules[6].inp_fuzzy_set[INPUT_Y] = in_ps;
-//    fl->rules[6].out_fuzzy_set = out_ns;
-//
-//    fl->rules[7].inp_fuzzy_set[INPUT_X] = in_ns;
-//    fl->rules[7].inp_fuzzy_set[INPUT_Y] = in_ze;
-//    fl->rules[7].out_fuzzy_set = out_ze;
-//
-//    fl->rules[8].inp_fuzzy_set[INPUT_X] = in_ns;
-//    fl->rules[8].inp_fuzzy_set[INPUT_Y] = in_ns;
-//    fl->rules[8].out_fuzzy_set = out_nm;
-//
-//    fl->rules[9].inp_fuzzy_set[INPUT_X] = in_ns;
-//    fl->rules[9].inp_fuzzy_set[INPUT_Y] = in_nl;
-//    fl->rules[9].out_fuzzy_set = out_ze;
-//
-//    fl->rules[10].inp_fuzzy_set[INPUT_X] = in_ze;
-//    fl->rules[10].inp_fuzzy_set[INPUT_Y] = in_pl;
-//    fl->rules[10].out_fuzzy_set = out_ps;
-//
-//    fl->rules[11].inp_fuzzy_set[INPUT_X] = in_ze;
-//    fl->rules[11].inp_fuzzy_set[INPUT_Y] = in_ps;
-//    fl->rules[11].out_fuzzy_set = out_ze;
-//
-//    fl->rules[12].inp_fuzzy_set[INPUT_X] = in_ze;
-//    fl->rules[12].inp_fuzzy_set[INPUT_Y] = in_ze;
-//    fl->rules[12].out_fuzzy_set = out_ze;
-//
-//    fl->rules[13].inp_fuzzy_set[INPUT_X] = in_ze;
-//    fl->rules[13].inp_fuzzy_set[INPUT_Y] = in_ns;
-//    fl->rules[13].out_fuzzy_set = out_ze;
-//
-//    fl->rules[14].inp_fuzzy_set[INPUT_X] = in_ze;
-//    fl->rules[14].inp_fuzzy_set[INPUT_Y] = in_nl;
-//    fl->rules[14].out_fuzzy_set = out_ns;
-//
-//    fl->rules[15].inp_fuzzy_set[INPUT_X] = in_ps;
-//    fl->rules[15].inp_fuzzy_set[INPUT_Y] = in_pl;
-//    fl->rules[15].out_fuzzy_set = out_ze;
-//
-//    fl->rules[16].inp_fuzzy_set[INPUT_X] = in_ps;
-//    fl->rules[16].inp_fuzzy_set[INPUT_Y] = in_ps;
-//    fl->rules[16].out_fuzzy_set = out_pm;
-//
-//    fl->rules[17].inp_fuzzy_set[INPUT_X] = in_ps;
-//    fl->rules[17].inp_fuzzy_set[INPUT_Y] = in_ze;
-//    fl->rules[17].out_fuzzy_set = out_ze;
-//
-//    fl->rules[18].inp_fuzzy_set[INPUT_X] = in_ps;
-//    fl->rules[18].inp_fuzzy_set[INPUT_Y] = in_ns;
-//    fl->rules[18].out_fuzzy_set = out_ps;
-//
-//    fl->rules[19].inp_fuzzy_set[INPUT_X] = in_ps;
-//    fl->rules[19].inp_fuzzy_set[INPUT_Y] = in_nl;
-//    fl->rules[19].out_fuzzy_set = out_ze;
-//
-//    fl->rules[20].inp_fuzzy_set[INPUT_X] = in_pl;
-//    fl->rules[20].inp_fuzzy_set[INPUT_Y] = in_pl;
-//    fl->rules[20].out_fuzzy_set = out_pl;
-//
-//    fl->rules[21].inp_fuzzy_set[INPUT_X] = in_pl;
-//    fl->rules[21].inp_fuzzy_set[INPUT_Y] = in_ps;
-//    fl->rules[21].out_fuzzy_set = out_ze;
-//
-//    fl->rules[22].inp_fuzzy_set[INPUT_X] = in_pl;
-//    fl->rules[22].inp_fuzzy_set[INPUT_Y] = in_ze;
-//    fl->rules[22].out_fuzzy_set = out_pm;
-//
-//    fl->rules[23].inp_fuzzy_set[INPUT_X] = in_pl;
-//    fl->rules[23].inp_fuzzy_set[INPUT_Y] = in_ns;
-//    fl->rules[23].out_fuzzy_set = out_ze;
-//
-//    fl->rules[24].inp_fuzzy_set[INPUT_X] = in_pl;
-//    fl->rules[24].inp_fuzzy_set[INPUT_Y] = in_nl;
-//    fl->rules[24].out_fuzzy_set = out_ps;
-
 
     fl->rules[0].inp_fuzzy_set[INPUT_X] = in_nl;
     fl->rules[0].inp_fuzzy_set[INPUT_Y] = in_pl;
@@ -334,47 +114,14 @@ void initFuzzyRules(fuzzy_system_rec *fl) {
     fl->rules[24].out_fuzzy_set = out_pm;
 
 
-
-
-
-
-
-
     for (int i = 0; i < no_of_XY_rules; ++i) {
-//        fl->rules[i].inp_fuzzy_set[0] = (i / 5);
-//        fl->rules[i].inp_fuzzy_set[1] = (i % 5) ;
-//
-//        fl->rules[i].out_fuzzy_set = 4 - (i % 5) + (i / 5);
         cout <<"X(angle): "<<fl->rules[i].inp_fuzzy_set[0]<<"  Y(x): "<<fl->rules[i].inp_fuzzy_set[1]<<"   out: "<<fl-> rules[i].out_fuzzy_set<<endl;
     }
 
 }
 
-//隶属函数---------------------------------------------------------------
+//MembershipFunction---------------------------------------------------------------
 void initMembershipFunctions(fuzzy_system_rec *fl) {
-//    fl->inp_mem_fns[INPUT_X][in_nl] = convert_degree_init_trap (trap_parameters[INPUT_X][in_nl].a,trap_parameters[INPUT_X][in_nl].b,trap_parameters[INPUT_X][in_nl].c,trap_parameters[INPUT_X][in_nl].d,left_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_X][in_ns] = convert_degree_init_trap (trap_parameters[INPUT_X][in_ns].a,trap_parameters[INPUT_X][in_ns].b,trap_parameters[INPUT_X][in_ns].c,trap_parameters[INPUT_X][in_ns].d,regular_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_X][in_ze] = convert_degree_init_trap (trap_parameters[INPUT_X][in_ze].a,trap_parameters[INPUT_X][in_ze].b,trap_parameters[INPUT_X][in_ze].c,trap_parameters[INPUT_X][in_ze].d,regular_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_X][in_ps] = convert_degree_init_trap (trap_parameters[INPUT_X][in_ps].a,trap_parameters[INPUT_X][in_ps].b,trap_parameters[INPUT_X][in_ps].c,trap_parameters[INPUT_X][in_ps].d,regular_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_X][in_pl] = convert_degree_init_trap (trap_parameters[INPUT_X][in_pl].a,trap_parameters[INPUT_X][in_pl].b,trap_parameters[INPUT_X][in_pl].c,trap_parameters[INPUT_X][in_pl].d,right_trapezoid);
-//
-//    //Y
-//    fl->inp_mem_fns[INPUT_Y][in_nl] = init_trapz (trap_parameters[INPUT_Y][in_nl].a,trap_parameters[INPUT_Y][in_nl].b,trap_parameters[INPUT_Y][in_nl].c,trap_parameters[INPUT_Y][in_nl].d,left_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_Y][in_ns] = init_trapz (trap_parameters[INPUT_Y][in_ns].a,trap_parameters[INPUT_Y][in_ns].b,trap_parameters[INPUT_Y][in_ns].c,trap_parameters[INPUT_Y][in_ns].d,regular_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_Y][in_ze] = init_trapz (trap_parameters[INPUT_Y][in_ze].a,trap_parameters[INPUT_Y][in_ze].b,trap_parameters[INPUT_Y][in_ze].c,trap_parameters[INPUT_Y][in_ze].d,regular_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_Y][in_ps] = init_trapz (trap_parameters[INPUT_Y][in_ps].a,trap_parameters[INPUT_Y][in_ps].b,trap_parameters[INPUT_Y][in_ps].c,trap_parameters[INPUT_Y][in_ps].d,regular_trapezoid);
-//
-//    fl->inp_mem_fns[INPUT_Y][in_pl] = init_trapz (trap_parameters[INPUT_Y][in_pl].a,trap_parameters[INPUT_Y][in_pl].b,trap_parameters[INPUT_Y][in_pl].c,trap_parameters[INPUT_Y][in_pl].d,right_trapezoid);
-//
-
-
 
     //enter the appropriate membership function initialisations here
     fl->inp_mem_fns[INPUT_Y][in_nl] = init_trapz (0,0, -2.1, 1.3, left_trapezoid);
@@ -424,12 +171,8 @@ void initFuzzySystem (fuzzy_system_rec *fl) {
     fl->no_of_inputs = 2;  /* Inputs are handled 2 at a time only */
     fl->no_of_rules = 25;
     fl->no_of_inp_regions = 5;
-    //fl->no_of_outputs = 7;
     fl->no_of_outputs = 9;
-//    coefficient_A = A;
-//    coefficient_B = B;
-//    coefficient_C = C;
-//    coefficient_D = D;
+
 
     coefficient_A=3;
     coefficient_B=0.4;
@@ -437,17 +180,6 @@ void initFuzzySystem (fuzzy_system_rec *fl) {
     coefficient_D=4;
 
     //Sample only out_nvl,out_nl,out_nm, out_ns, out_ze,out_ps, out_pm,out_pl, out_pvl
-
-//    fl->output_values [out_nvl] = output_power_Value[out_nvl];
-//    fl->output_values [out_nl] = output_power_Value[out_nl];
-//    fl->output_values [out_nm] = output_power_Value[out_nm];
-//    fl->output_values [out_ns] = output_power_Value[out_ns];
-//    fl->output_values [out_ze] = output_power_Value[out_ze];
-//    fl->output_values [out_ps] = output_power_Value[out_ps];
-//    fl->output_values [out_ps] = output_power_Value[out_ps];
-//    fl->output_values [out_pl] = output_power_Value[out_pl];
-//    fl->output_values [out_pvl] = output_power_Value[out_pvl];
-
 
     fl->output_values [out_nvl] = -800.0;
     fl->output_values [out_nl] = -600.0;
@@ -460,13 +192,6 @@ void initFuzzySystem (fuzzy_system_rec *fl) {
     fl->output_values [out_pvl] = 800.0;
 
 
-//    fl->output_values[out_nl] = -430.0;
-//    fl->output_values[out_nm] = -430.0 + 1*860.0/6;
-//    fl->output_values[out_ns] = -430.0 + 2*860.0/6;
-//    fl->output_values[out_ze] = -430.0 + 3*860.0/6;
-//    fl->output_values[out_ps] = -430.0 + 4*860.0/6;
-//    fl->output_values[out_pm] = -430.0 + 5*860.0/6;
-//    fl->output_values[out_pl] = 430.0;
 
 
     fl->rules = (rule *) malloc ((size_t)(fl->no_of_rules*sizeof(rule)));
