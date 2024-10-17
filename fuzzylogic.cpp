@@ -114,9 +114,9 @@ void initFuzzyRules(fuzzy_system_rec *fl) {
     fl->rules[24].out_fuzzy_set = out_pm;
 
 
-    for (int i = 0; i < no_of_XY_rules; ++i) {
-        cout <<"X(angle): "<<fl->rules[i].inp_fuzzy_set[0]<<"  Y(x): "<<fl->rules[i].inp_fuzzy_set[1]<<"   out: "<<fl-> rules[i].out_fuzzy_set<<endl;
-    }
+//    for (int i = 0; i < no_of_XY_rules; ++i) {
+//        cout <<"X(angle): "<<fl->rules[i].inp_fuzzy_set[0]<<"  Y(x): "<<fl->rules[i].inp_fuzzy_set[1]<<"   out: "<<fl-> rules[i].out_fuzzy_set<<endl;
+//    }
 
 }
 /*
