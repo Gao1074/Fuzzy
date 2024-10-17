@@ -2,18 +2,25 @@ CC := g++
 TARGET := main
 
 # Detect the operating system
+VCPKG_PATH := D:/study/PLAYGROUND/C++/C++/vcpkg
+
 ifeq ($(OS),Windows_NT)
 
-	CFLAGS := -O2 -std=c++14 -Wall -c -fpermissive -fconserve-space -Wno-write-strings
-    LFLAGS := -lgdi32
+	# 设置编译器标志，包含 vcpkg 路径
+	CFLAGS := -O2 -std=c++14 -Wall -c -fpermissive -fconserve-space -Wno-write-strings -I$(VCPKG_PATH)/installed/x64-windows/include
 
-    EXTENSION := .exe
+	# 设置链接标志，包含 vcpkg 路径
+	LFLAGS := -lgdi32 -L$(VCPKG_PATH)/installed/x64-windows/lib
+
+	# 目标文件扩展名和清理命令
+	EXTENSION := .exe
 	CLEANUP := del
 	CLEANUP_OBJS := del *.o
 
-	# Find all source files (.cpp) and header files (.h)
-	SRCS := main.cpp graphics.cpp transform.cpp sprites.cpp fuzzylogic.cpp 
+	# 定义源文件和头文件
+	SRCS := main.cpp graphics.cpp transform.cpp sprites.cpp fuzzylogic.cpp
 	HDRS := graphics.h transform.h sprites.h fuzzylogic.h
+
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)

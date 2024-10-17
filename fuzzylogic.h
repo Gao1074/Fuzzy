@@ -76,8 +76,9 @@ float trapz (float x, trapezoid trz);
 float min_of (float values[],int no_of_inps);
 float fuzzy_system (float inputs[],fuzzy_system_rec fz);
 void free_fuzzy_rules (fuzzy_system_rec *fz);
-
-
+float degree_convert(float degree);
+trapezoid convert_degree_init_trap(float x1,float x2,float x3,float x4, trapz_type typ);
+void loadData();
 
 
 #endif
