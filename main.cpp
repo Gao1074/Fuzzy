@@ -57,7 +57,7 @@ using namespace std;
 /// Global Variables ///////////////////////////////////////////////////////////////////////
 
 
-bool DEBUG_MODE= true;
+bool DEBUG_MODE= false;
 float WORLD_MAXX, WORLD_MAXY;
 int fieldX1, fieldY1, fieldX2, fieldY2; //playing field boundaries
 BoundaryType worldBoundary,deviceBoundary;
@@ -418,7 +418,7 @@ void runInvertedPendulum(){
 				 	if(fabs(prevState.angle)  <= 0.03 && (fabs(prevState.angle - tmpPrevAngle) <= 0.03) && fabs(prevState.x) <= 0.02 && fabs(prevState.x - tmpPrevX) <= 0.09){
 				 		cout << "\nBalanced!" << endl;
 				 		stabilized = true;
-				 		done = true;
+				 		//done = true;
 				 		// getch();
 				 	}
 				 }
@@ -764,7 +764,7 @@ int main(void) {
 		runInvertedPendulum();
 	
 		//3) Enable this only after your fuzzy system has been completed already.
-		generateControlSurface_Angle_vs_Angle_Dot();
+		//generateControlSurface_Angle_vs_Angle_Dot();
 		
 		//4) Enable this only after your fuzzy system has been completed already.
 		//saveDataToFile("data_angle_vs_angle_dot.txt");

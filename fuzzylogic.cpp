@@ -119,16 +119,42 @@ void initFuzzyRules(fuzzy_system_rec *fl) {
     }
 
 }
-
+/*
+    X(angle): NL  Y(x): PL   out: NM
+    X(angle): NL  Y(x): PS   out: NS
+    X(angle): NL  Y(x): ZE   out: NL
+    X(angle): NL  Y(x): NS   out: NS
+    X(angle): NL  Y(x): NL   out: NVL
+    X(angle): NS  Y(x): PL   out: NS
+    X(angle): NS  Y(x): PS   out: NM
+    X(angle): NS  Y(x): ZE   out: NS
+    X(angle): NS  Y(x): NS   out: NL
+    X(angle): NS  Y(x): NL   out: NS
+    X(angle): ZE  Y(x): PL   out: NM
+    X(angle): ZE  Y(x): PS   out: NS
+    X(angle): ZE  Y(x): ZE   out: ZE
+    X(angle): ZE  Y(x): NS   out: NS
+    X(angle): ZE  Y(x): NL   out: PM
+    X(angle): PS  Y(x): PL   out: PS
+    X(angle): PS  Y(x): PS   out: PL
+    X(angle): PS  Y(x): ZE   out: PS
+    X(angle): PS  Y(x): NS   out: PM
+    X(angle): PS  Y(x): NL   out: PS
+    X(angle): PL  Y(x): PL   out: PVL
+    X(angle): PL  Y(x): PS   out: PS
+    X(angle): PL  Y(x): ZE   out: PL
+    X(angle): PL  Y(x): NS   out: PS
+    X(angle): PL  Y(x): NL   out: PM
+ */
 //MembershipFunction---------------------------------------------------------------
 void initMembershipFunctions(fuzzy_system_rec *fl) {
 
     //enter the appropriate membership function initialisations here
-    fl->inp_mem_fns[INPUT_Y][in_nl] = init_trapz (0,0, -2.1, 1.3, left_trapezoid);
+    fl->inp_mem_fns[INPUT_Y][in_nl] = init_trapz (0,0, -2.1, -1.3, left_trapezoid);
 
     fl->inp_mem_fns[INPUT_Y][in_ns] = init_trapz (-2.1, -1.3, -1.0, 0, regular_trapezoid);
 
-    fl->inp_mem_fns[INPUT_Y][in_ze] = init_trapz (-1.0, 0.5, 0.5, 1.0, regular_trapezoid);
+    fl->inp_mem_fns[INPUT_Y][in_ze] = init_trapz (-1.0, -0.5, 0.5, 1.0, regular_trapezoid);
 
     fl->inp_mem_fns[INPUT_Y][in_ps] = init_trapz (0, 1.0, 1.3, 2.1, regular_trapezoid);
 
@@ -140,7 +166,7 @@ void initMembershipFunctions(fuzzy_system_rec *fl) {
 
     fl->inp_mem_fns[INPUT_X][in_ns] = convert_degree_init_trap (-10, -8, -3, 0, regular_trapezoid);
 
-    fl->inp_mem_fns[INPUT_X][in_ze] = convert_degree_init_trap (-0.1, -0, 0, 0.1, regular_trapezoid);
+    fl->inp_mem_fns[INPUT_X][in_ze] = convert_degree_init_trap (-0.5, 0, 0, 0.5, regular_trapezoid);
 
     fl->inp_mem_fns[INPUT_X][in_ps] = convert_degree_init_trap (0, 3, 8, 10, regular_trapezoid);
 
